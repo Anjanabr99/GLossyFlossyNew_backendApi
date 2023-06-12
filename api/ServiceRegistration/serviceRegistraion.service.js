@@ -54,7 +54,7 @@ module.exports = {
     );
   },
 
-  serviceRegistrationSelect: (callback) => {
+  ServiceRegistartionselect: (callback) => {
     pool.query(
       `SELECT 
       sr.user_id, 
@@ -62,7 +62,6 @@ module.exports = {
       sr.serv_nameSlno,
       sn.serv_name,
       sr.serv_type,
-      sr.service_type,
       sr.requment_type,
       sr.subcrpn_type,
       sr.location,

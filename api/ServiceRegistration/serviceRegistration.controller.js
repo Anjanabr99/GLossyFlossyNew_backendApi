@@ -45,7 +45,6 @@ module.exports={
         })
       },
       ServiceRegistartionselect:(req,res)=>{
-        console.log("nhdfjkshfkhdfjkh");
         ServiceRegistartionselect((err,results)=>{
               if(err){
                 return res.status(400).json({
@@ -61,7 +60,7 @@ module.exports={
             }
             return res.status(200).json({
                 success:2,
-               data:results
+                data:results
             })
         })
       }

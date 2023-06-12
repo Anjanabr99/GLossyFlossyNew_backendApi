@@ -1,4 +1,4 @@
-const {insertservicereg,serviceupdation} = require('./serviceRegistraion.service')
+const {insertservicereg,serviceupdation,ServiceRegistartionselect} = require('./serviceRegistraion.service')
 
 
 module.exports={
@@ -44,4 +44,25 @@ module.exports={
             })
         })
       },
+      ServiceRegistartionselect:(req,res)=>{
+        console.log("nhdfjkshfkhdfjkh");
+        ServiceRegistartionselect((err,results)=>{
+              if(err){
+                return res.status(400).json({
+                    success:0,
+                    message:err
+                })
+            }
+            else if(results.length==0){
+                return res.status(200).json({
+                    success:1,
+                    message:"no records"
+                })
+            }
+            return res.status(200).json({
+                success:2,
+               data:results
+            })
+        })
+      }
 }

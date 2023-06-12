@@ -11,6 +11,7 @@ const usercreationRouter  = require('./api/usercreation/usercreation.router');
 const servicetypeRouter = require('./api/ServiceType/service.router');
 const serviceRegisterRouter = require('./api/ServiceRegistration/serviceRegistration.router')
 const EmployeeCreationRouter = require('./api/EmployeeeCreation/employeecreation.router')
+const Jobmangement = require('./api/employeeJobMangement/JobMangemnt.router')
 app.get('/',(req,res)=>{
     res.send("hello my name is")
 })
@@ -19,6 +20,8 @@ app.use('/api/usercreation',usercreationRouter)
 app.use('/api/getservicetype',servicetypeRouter)
 app.use('/api/servReg',serviceRegisterRouter)
 app.use('/api/employee',EmployeeCreationRouter)
+app.use('/api/jobmangmt',Jobmangement)
+
 
 
 app.listen(3000,()=>{

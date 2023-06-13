@@ -63,14 +63,18 @@ module.exports = {
       sn.serv_name,
       sr.serv_type,
       sr.requment_type,
+      rq.requirement,
       sr.subcrpn_type,
+      ss.subscrption_type,
       sr.location,
       sr.booking_date 
     FROM 
       service_reg AS sr
       LEFT JOIN services AS s1 ON sr.serv_type = s1.serv_slno
       LEFT JOIN user_creation AS uc ON sr.user_id = uc.id 
-      LEFT JOIN service_name AS sn ON sr.serv_nameSlno = sn.name_slno`,
+      LEFT JOIN service_name AS sn ON sr.serv_nameSlno = sn.name_slno
+      LEFT JOIN serv_subscription AS ss ON sr.subcrpn_type = ss.sub_slno 
+      LEFT JOIN requirement AS rq ON sr.requment_type = rq.slno`,
       [],
       (error, results, fields) => {
         if (error) {

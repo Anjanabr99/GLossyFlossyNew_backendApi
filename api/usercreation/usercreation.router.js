@@ -1,8 +1,9 @@
 
 const router = require("express").Router();
-const {insertuser} = require('./usercreation.controller');
+const {insertuser,updateuser} = require('./usercreation.controller');
 
-router.post('/insert',insertuser);
+router.post('/userinsert',insertuser);
+router.patch('/updateuser',updateuser);
 
 
 module.exports=router;

@@ -10,20 +10,22 @@ var pool = mysql.createConnection({
 module.exports={
     insertuser:(data,callback)=>{
         pool.query(`insert into user_creation
-        (user_name,
+        (user_fname,
         email,
-        age,
+        user_dob,
         phone,
         address,
-        is_employeee)
-        values(?,?,?,?,?,?)`,
+        user_lname,
+        user_password)
+        values(?,?,?,?,?,?,?)`,
         [
-            data.user_name,
+            data.user_fname,
             data.email,
-            data.age,
+            data.user_dob,
             data.phone,
             data.address,
-            data.is_employeee
+            data.user_lname,
+            data.user_password
         ],
        (error,results,feilds)=>{
           if(error){
@@ -33,4 +35,33 @@ module.exports={
         } 
         )
     },
-}
+
+    updateuser:(data,callback)=>{
+      pool.query(`update user_creation set 
+      user_fname =?,
+        email =?,
+        user_dob =?,
+        phone=?,
+        address=?,
+        user_lname=?,
+        user_password=?
+        where id=?`, 
+        [
+          data.user_fname,
+          data.email,
+          data.user_dob,
+          data.phone,
+          data.address,
+          data.user_lname,
+          data.user_password,
+          data.id
+        ],
+        (error,results,feilds)=>{
+          if(error){
+            return callback(error)
+          }
+          return callback(null,results);
+        }
+      )
+    }
+  }
